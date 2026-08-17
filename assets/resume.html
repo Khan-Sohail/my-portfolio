@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sohail Khan — Resume</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm 14mm 16mm 14mm;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.45;
+        color: #1f2430;
+      }
+      .header {
+        border-bottom: 2.5px solid #ff2d20;
+        padding-bottom: 10px;
+        margin-bottom: 14px;
+      }
+      .name {
+        font-size: 24pt;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: #14181f;
+      }
+      .role {
+        font-size: 11.5pt;
+        font-weight: 600;
+        color: #ff2d20;
+        margin-top: 2px;
+      }
+      .contact {
+        margin-top: 8px;
+        font-size: 9.5pt;
+        color: #4b5563;
+      }
+      .contact span {
+        margin-right: 14px;
+      }
+      h2 {
+        font-size: 11.5pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #ff2d20;
+        margin: 14px 0 6px;
+      }
+      .summary {
+        color: #374151;
+      }
+      .job {
+        margin-bottom: 10px;
+      }
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .job-title {
+        font-weight: 700;
+        font-size: 11pt;
+        color: #14181f;
+      }
+      .job-meta {
+        font-size: 9.5pt;
+        color: #6b7280;
+        font-weight: 600;
+      }
+      .job-company {
+        font-weight: 600;
+        color: #ff2d20;
+        font-size: 10pt;
+      }
+      .job p {
+        color: #374151;
+        margin-top: 2px;
+      }
+      .job ul {
+        margin: 4px 0 0 16px;
+        color: #374151;
+      }
+      .skills-list {
+        columns: 3;
+        list-style: none;
+        margin-top: 2px;
+      }
+      .skills-list li {
+        break-inside: avoid;
+        padding: 1px 0;
+        color: #374151;
+      }
+      .skills-list li::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #ff2d20;
+        border-radius: 50%;
+        margin-right: 6px;
+      }
+      .project {
+        margin-bottom: 6px;
+      }
+      .project-name {
+        font-weight: 700;
+        color: #14181f;
+      }
+      .project-tag {
+        font-size: 9pt;
+        color: #6b7280;
+      }
+      .project p {
+        color: #374151;
+      }
+      a {
+        color: #374151;
+        text-decoration: none;
+      }
+      .footnote {
+        margin-top: 14px;
+        font-size: 8.5pt;
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="name">Sohail Khan</div>
+      <div class="role">Senior Laravel &amp; AI Engineer | Technical Lead | Full-Stack Developer</div>
+      <div class="contact">
+        <span>Mumbai, India</span>
+        <span>ksohail.sk32@gmail.com</span>
+        <span>+91 99678 32161</span>
+        <span>github.com/Khan-Sohail</span>
+        <span>linkedin.com/in/sohailkhan-ai</span>
+      </div>
+    </div>
+
+    <h2>Summary</h2>
+    <p class="summary">
+      Senior Laravel &amp; AI Engineer and Technical Lead with 5+ years of
+      experience building scalable web applications, APIs, SaaS platforms and
+      AI-powered software. Hands-on with PHP 8+, Laravel 11/12, Redis, Swagger,
+      Vue 3, Nuxt 3, Vuetify and Pinia, deployed on AWS with Docker and CI/CD.
+      Practiced in TDD and clean architecture, with a track record of shipping
+      250+ REST APIs and 50+ dashboards, including ride-hailing and payment
+      integrations. Leads cross-functional teams, mentors developers and raises
+      code quality standards end to end.
+    </p>
+
+    <h2>Experience</h2>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Project Manager</div>
+        <div class="job-meta">2023 — 2025</div>
+      </div>
+      <div class="job-company">Aaibuzz</div>
+      <p>
+        Led cross-functional teams to deliver complex web applications. Managed
+        project timelines, resource allocation and stakeholder communication to
+        ensure successful product launches.
+      </p>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Senior Software Developer</div>
+        <div class="job-meta">2021 — 2023</div>
+      </div>
+      <div class="job-company">Aaibuzz</div>
+      <p>
+        Spearheaded backend architecture and frontend integration. Mentored
+        junior developers and optimized code quality standards using Laravel and
+        Vue.js.
+      </p>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Software Developer</div>
+        <div class="job-meta">2019 — 2021</div>
+      </div>
+      <div class="job-company">AndroApps Technologies</div>
+      <p>
+        Developed and maintained full-stack web solutions. Collaborated with
+        design teams to implement responsive UI/UX and optimized database
+        performance.
+      </p>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Intern</div>
+        <div class="job-meta">2018 — 2019</div>
+      </div>
+      <div class="job-company">MaxGen Technologies</div>
+      <p>
+        Gained hands-on experience in web development using CodeIgniter, HTML,
+        CSS and SQL. Assisted in building modular components and debugging
+        legacy code.
+      </p>
+    </div>
+
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>PHP 8+</li>
+      <li>Laravel 11 / 12</li>
+      <li>REST API Design</li>
+      <li>Node.js</li>
+      <li>Vue.js 3</li>
+      <li>Nuxt 3</li>
+      <li>Vuetify</li>
+      <li>React</li>
+      <li>JavaScript / TypeScript</li>
+      <li>Tailwind CSS</li>
+      <li>Three.js</li>
+      <li>MySQL</li>
+      <li>Redis</li>
+      <li>AWS</li>
+      <li>Docker</li>
+      <li>CI/CD</li>
+      <li>Git</li>
+      <li>Payment APIs</li>
+      <li>Third-Party APIs</li>
+      <li>Swagger / OpenAPI</li>
+      <li>AI-Powered Engineering</li>
+      <li>Figma</li>
+    </ul>
+
+    <h2>Projects</h2>
+    <div class="project">
+      <span class="project-name">Toy Tales</span>
+      <span class="project-tag"> — JavaScript, CSS, HTML, Animation</span>
+      <p>
+        A creative e-commerce experience for toys with 3D elements and
+        interactive design. github.com/Khan-Sohail/toy-tales
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">Addy Glitch</span>
+      <span class="project-tag"> — JavaScript, Frontend, glitch.js, UI/UX</span>
+      <p>
+        A frontend experimentation project featuring modern JavaScript
+        techniques and glitch effects. github.com/Khan-Sohail/addy_glitch-front
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">Wellness App</span>
+      <span class="project-tag"> — React Native, Firebase, Redux, Lottie</span>
+      <p>A mobile-first wellness application with personalized meditation
+        sessions, progress tracking and calming visual experiences.</p>
+    </div>
+    <div class="project">
+      <span class="project-name">Creative Agency Site</span>
+      <span class="project-tag"> — Three.js, GSAP, Nuxt, Prismic</span>
+      <p>An agency website with immersive scroll animations, WebGL effects and
+        a bold visual identity.</p>
+    </div>
+
+    <p class="footnote">
+      Generated from the portfolio at khan-sohail.github.io/my-portfolio ·
+      education details available on request
+    </p>
+  </body>
+</html>
