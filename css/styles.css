@@ -1032,6 +1032,153 @@ textarea {
 }
 
 /* ================================================
+   BOOKSHELF PROJECTS
+   ================================================ */
+
+.shelf {
+  margin-bottom: 3.5rem;
+}
+
+.shelf-books {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.book {
+  position: relative;
+  display: block;
+  width: 126px;
+  height: 210px;
+  border-radius: 4px 10px 10px 4px;
+  text-decoration: none;
+  transform: translateY(0);
+  transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s var(--ease-smooth);
+}
+
+.shelf-books .book:nth-child(2n) {
+  width: 140px;
+}
+
+.shelf-books .book:nth-child(3n) {
+  width: 116px;
+}
+
+.book-cover {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 14px 14px 22px;
+}
+
+.book-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  border-radius: 4px 0 0 4px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.12));
+}
+
+.book-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.book-role {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.book-arrow {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 0.85;
+}
+
+.book:hover {
+  transform: translateY(-10px) rotate(-2.5deg);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+
+.book:hover .book-arrow {
+  opacity: 1;
+}
+
+.book:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+.shelf-plank {
+  height: 13px;
+  margin-top: 13px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #46372b 0%, #2b2119 55%, #1a130d 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.c-red .book-cover {
+  background: linear-gradient(160deg, #6f3229, #4a201a);
+}
+
+.c-teal .book-cover {
+  background: linear-gradient(160deg, #1f5048, #143530);
+}
+
+.c-indigo .book-cover {
+  background: linear-gradient(160deg, #2e3358, #1e2242);
+}
+
+.c-olive .book-cover {
+  background: linear-gradient(160deg, #434222, #2d2c15);
+}
+
+.c-brown .book-cover {
+  background: linear-gradient(160deg, #513824, #35220f);
+}
+
+.c-slate .book-cover {
+  background: linear-gradient(160deg, #384763, #243047);
+}
+
+.c-plum .book-cover {
+  background: linear-gradient(160deg, #49324f, #302036);
+}
+
+.c-coral .book-cover {
+  background: linear-gradient(160deg, #723c2b, #4f261a);
+}
+
+.c-violet .book-cover {
+  background: linear-gradient(160deg, #41325e, #2b2141);
+}
+
+.c-sage .book-cover {
+  background: linear-gradient(160deg, #324d3b, #1f3427);
+}
+
+.c-charcoal .book-cover {
+  background: linear-gradient(160deg, #41414a, #282830);
+}
+
+/* ================================================
    SKILLS SECTION
    ================================================ */
 
@@ -1881,6 +2028,35 @@ textarea {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
+  }
+
+  .book {
+    width: 96px;
+    height: 168px;
+  }
+
+  .shelf-books .book:nth-child(2n) {
+    width: 104px;
+  }
+
+  .shelf-books .book:nth-child(3n) {
+    width: 90px;
+  }
+
+  .shelf-books {
+    gap: 0.7rem;
+  }
+
+  .book-cover {
+    padding: 12px 10px 10px 16px;
+  }
+
+  .book-title {
+    font-size: 0.75rem;
+  }
+
+  .book-role {
+    display: none;
   }
 
   .skill-row {
