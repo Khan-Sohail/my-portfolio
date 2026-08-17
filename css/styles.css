@@ -398,6 +398,7 @@ textarea {
   align-items: center;
   gap: 0.6rem;
   font-size: 0.875rem;
+  line-height: 1.15;
   color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
