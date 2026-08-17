@@ -1193,31 +1193,48 @@ textarea {
   margin-bottom: 3rem;
 }
 
-.certs-grid {
+.cert-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.cert-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.4rem 1.5rem;
-  transition: border-color var(--transition-normal), transform var(--transition-normal);
-}
-
-.cert-card:hover {
-  border-color: rgba(255, 45, 32, 0.35);
-  transform: translateY(-3px);
-}
-
-.cert-top {
+.cert-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  gap: 1rem;
+  padding: 0.85rem 0.25rem;
+  border-bottom: 1px solid var(--border);
+  transition: padding var(--transition-fast);
+}
+
+.cert-row:hover {
+  padding-left: 0.5rem;
+}
+
+.cert-row:hover .cert-name {
+  color: var(--accent-light);
+}
+
+.cert-name {
+  font-family: var(--font-heading);
+  font-size: 0.925rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.cert-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .cert-issuer {
@@ -1226,6 +1243,7 @@ textarea {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-light);
+  white-space: nowrap;
 }
 
 .cert-year {
@@ -1243,14 +1261,6 @@ textarea {
   padding: 0.2rem 0.55rem;
   border-radius: 100px;
   white-space: nowrap;
-}
-
-.cert-name {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.45;
-  color: var(--text-primary);
 }
 
 /* ================================================
@@ -1860,6 +1870,17 @@ textarea {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+  }
+
+  .cert-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .cert-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
   }
 
   .skill-row {
