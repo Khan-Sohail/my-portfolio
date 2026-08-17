@@ -1,0 +1,14 @@
+# Node / worker dependencies
+node_modules/
+.wrangler/
+
+# Local secrets file (wrangler dev)
+.dev.vars
+
+# Local environment files
+.env
+.env.local
+
+# OS noise
+Thumbs.db
+.DS_Store

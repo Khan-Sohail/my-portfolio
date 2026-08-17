@@ -3,6 +3,12 @@
  * Navigation, scroll reveal, scrollspy, 3D tilt, smooth scroll, contact form
  */
 
+/**
+ * Contact API endpoint (Cloudflare Worker).
+ */
+const CONTACT_API_URL =
+  'https://portfolio-contact-api.sohailkhan01.workers.dev/api/contact';
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initScrollReveal();
@@ -167,19 +173,104 @@ function initSmoothScroll() {
 }
 
 /**
- * Contact form handling
+ * Contact form - validation, submission and status handling
  */
 function initContactForm() {
   const form = document.getElementById('contact-form');
 
   if (!form) return;
 
+  const fields = {
+    name: { input: form.elements.name, error: document.getElementById('name-error') },
+    email: { input: form.elements.email, error: document.getElementById('email-error') },
+    message: { input: form.elements.message, error: document.getElementById('message-error') },
+  };
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const status = document.getElementById('form-status');
+  const originalText = submitBtn.innerHTML;
+
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function setFieldError(name, message) {
+    const field = fields[name];
+    field.input.setAttribute('aria-invalid', 'true');
+    field.error.textContent = message;
+    field.error.hidden = false;
+  }
+
+  function clearFieldError(name) {
+    const field = fields[name];
+    field.input.removeAttribute('aria-invalid');
+    field.error.hidden = true;
+    field.error.textContent = '';
+  }
+
+  function showStatus(message, isError) {
+    status.textContent = message;
+    status.classList.toggle('form-status--error', isError);
+    status.classList.toggle('form-status--success', !isError);
+    status.hidden = false;
+  }
+
+  function clearStatus() {
+    status.hidden = true;
+    status.textContent = '';
+  }
+
+  function validateForm() {
+    let valid = true;
+    const name = fields.name.input.value.trim();
+    const email = fields.email.input.value.trim();
+    const message = fields.message.input.value.trim();
+
+    if (!name) {
+      setFieldError('name', 'Please enter your name.');
+      valid = false;
+    } else if (name.length > 100) {
+      setFieldError('name', 'Name must be 100 characters or fewer.');
+      valid = false;
+    } else {
+      clearFieldError('name');
+    }
+
+    if (!email) {
+      setFieldError('email', 'Please enter your email address.');
+      valid = false;
+    } else if (email.length > 254 || !EMAIL_RE.test(email)) {
+      setFieldError('email', 'Please enter a valid email address.');
+      valid = false;
+    } else {
+      clearFieldError('email');
+    }
+
+    if (!message) {
+      setFieldError('message', 'Please enter a message.');
+      valid = false;
+    } else if (message.length > 5000) {
+      setFieldError('message', 'Message must be 5000 characters or fewer.');
+      valid = false;
+    } else {
+      clearFieldError('message');
+    }
+
+    return valid;
+  }
+
+  let isSubmitting = false;
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
+    if (isSubmitting) return;
+    clearStatus();
 
+    if (!validateForm()) {
+      showStatus('Please correct the highlighted fields.', true);
+      return;
+    }
+
+    isSubmitting = true;
+    submitBtn.disabled = true;
     submitBtn.innerHTML = `
       <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
@@ -187,25 +278,48 @@ function initContactForm() {
       </svg>
       Sending...
     `;
-    submitBtn.disabled = true;
 
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: fields.name.input.value.trim(),
+          email: fields.email.input.value.trim(),
+          message: fields.message.input.value.trim(),
+          company: form.elements.company ? form.elements.company.value : '',
+        }),
+      });
 
-    submitBtn.innerHTML = `
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Message Sent!
-    `;
-    submitBtn.style.background = '#10b981';
+      const data = await response.json().catch(() => null);
 
-    form.reset();
-
-    setTimeout(() => {
-      submitBtn.innerHTML = originalText;
-      submitBtn.style.background = '';
+      if (response.ok && data && data.success) {
+        showStatus(data.message || 'Message sent successfully. I will get back to you soon.');
+        form.reset();
+      } else if (response.status === 400 && data && data.errors) {
+        Object.keys(data.errors).forEach((key) => {
+          if (fields[key]) setFieldError(key, data.errors[key]);
+        });
+        showStatus(data.message || 'Please check the form fields.', true);
+      } else if (response.status === 429) {
+        showStatus('Too many messages. Please try again in a minute.', true);
+      } else {
+        showStatus('Something went wrong. Please try again in a moment.', true);
+      }
+    } catch {
+      showStatus('Network error. Please check your connection and try again.', true);
+    } finally {
+      isSubmitting = false;
       submitBtn.disabled = false;
-    }, 3000);
+      submitBtn.innerHTML = originalText;
+    }
+  });
+
+  ['name', 'email', 'message'].forEach((name) => {
+    fields[name].input.addEventListener('input', () => {
+      clearFieldError(name);
+      if (!status.hidden && status.classList.contains('form-status--error')) clearStatus();
+    });
   });
 }
 

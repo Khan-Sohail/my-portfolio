@@ -1030,7 +1030,12 @@
                 from you. Fill out the form below or reach out directly.
               </p>
             </div>
-            <form class="contact-form" id="contact-form">
+            <form
+              class="contact-form"
+              id="contact-form"
+              novalidate
+              action="#"
+            >
               <div class="form-row reveal reveal-delay-3">
                 <div class="form-group">
                   <label for="name">Name</label>
@@ -1040,8 +1045,11 @@
                     name="name"
                     placeholder="Your name"
                     autocomplete="name"
+                    maxlength="100"
+                    aria-describedby="name-error"
                     required
                   />
+                  <small class="form-error" id="name-error" hidden></small>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
@@ -1051,8 +1059,11 @@
                     name="email"
                     placeholder="your@email.com"
                     autocomplete="email"
+                    maxlength="254"
+                    aria-describedby="email-error"
                     required
                   />
+                  <small class="form-error" id="email-error" hidden></small>
                 </div>
               </div>
               <div class="form-group reveal reveal-delay-4">
@@ -1061,8 +1072,24 @@
                   id="message"
                   name="message"
                   placeholder="Tell me about your project..."
+                  maxlength="5000"
+                  aria-describedby="message-error"
                   required
                 ></textarea>
+                <small class="form-error" id="message-error" hidden></small>
+              </div>
+              <div
+                class="hp-field"
+                aria-hidden="true"
+              >
+                <label for="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
               </div>
               <div class="form-submit reveal reveal-delay-4">
                 <button type="submit" class="btn btn-primary">
@@ -1084,6 +1111,7 @@
                   </svg>
                 </button>
               </div>
+              <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
             </form>
             <div class="contact-socials reveal">
               <a

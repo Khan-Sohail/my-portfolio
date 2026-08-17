@@ -1,0 +1,24 @@
+name = "portfolio-contact-api"
+main = "src/index.js"
+compatibility_date = "2025-08-01"
+
+# Non-secret infrastructure defaults. Owner-specific values (recipient email,
+# WhatsApp number, sender, API keys) must be supplied at deploy time via
+# `wrangler secret put` or the dashboard — never committed here.
+[vars]
+RESEND_API_URL = "https://api.resend.com"
+WHATSAPP_GRAPH_URL = "https://graph.facebook.com"
+WHATSAPP_API_VERSION = "v23.0"
+WHATSAPP_TEMPLATE_NAME = "portfolio_contact_notification"
+WHATSAPP_TEMPLATE_LANGUAGE = "en_US"
+CONTACT_ALLOWED_ORIGIN = "https://khan-sohail.github.io"
+
+# Native rate limiting: max 5 submissions per IP per 60 seconds.
+# (namespace_id is an integer you define, unique to your Cloudflare account.)
+[[ratelimits]]
+name = "CONTACT_RATE_LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 5
+  period = 60
