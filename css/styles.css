@@ -1071,9 +1071,10 @@ textarea {
   inset: 0;
   border-radius: inherit;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px 14px 14px 22px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px 12px;
 }
 
 .book-spine {
@@ -1088,37 +1089,108 @@ textarea {
 
 .book-title {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.3;
   color: #fff;
 }
 
-.book-role {
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.book-arrow {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.75);
-  opacity: 0.85;
-}
-
-.book:hover {
+.book:hover,
+.book:focus,
+.book.is-open {
   transform: translateY(-10px) rotate(-2.5deg);
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.55);
   z-index: 2;
 }
 
-.book:hover .book-arrow {
+.book:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+.book-reveal {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  z-index: 5;
+  width: 300px;
+  padding: 1.15rem 1.25rem;
+  border-radius: 12px 12px 4px 4px;
+  background: inherit;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(12px);
+  transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth),
+    visibility 0s linear 0.3s;
+}
+
+.book:hover .book-reveal,
+.book:focus .book-reveal,
+.book.is-open .book-reveal {
   opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth);
+}
+
+.reveal-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 0.15rem;
+}
+
+.reveal-role {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 0.6rem;
+}
+
+.reveal-desc {
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.75rem;
+}
+
+.reveal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.reveal-tag {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.22rem 0.55rem;
+}
+
+.reveal-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
 }
 
 .book:focus-visible {
@@ -1134,47 +1206,47 @@ textarea {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.09);
 }
 
-.c-red .book-cover {
+.c-red.book {
   background: linear-gradient(160deg, #6f3229, #4a201a);
 }
 
-.c-teal .book-cover {
+.c-teal.book {
   background: linear-gradient(160deg, #1f5048, #143530);
 }
 
-.c-indigo .book-cover {
+.c-indigo.book {
   background: linear-gradient(160deg, #2e3358, #1e2242);
 }
 
-.c-olive .book-cover {
+.c-olive.book {
   background: linear-gradient(160deg, #434222, #2d2c15);
 }
 
-.c-brown .book-cover {
+.c-brown.book {
   background: linear-gradient(160deg, #513824, #35220f);
 }
 
-.c-slate .book-cover {
+.c-slate.book {
   background: linear-gradient(160deg, #384763, #243047);
 }
 
-.c-plum .book-cover {
+.c-plum.book {
   background: linear-gradient(160deg, #49324f, #302036);
 }
 
-.c-coral .book-cover {
+.c-coral.book {
   background: linear-gradient(160deg, #723c2b, #4f261a);
 }
 
-.c-violet .book-cover {
+.c-violet.book {
   background: linear-gradient(160deg, #41325e, #2b2141);
 }
 
-.c-sage .book-cover {
+.c-sage.book {
   background: linear-gradient(160deg, #324d3b, #1f3427);
 }
 
-.c-charcoal .book-cover {
+.c-charcoal.book {
   background: linear-gradient(160deg, #41414a, #282830);
 }
 
@@ -2048,15 +2120,17 @@ textarea {
   }
 
   .book-cover {
-    padding: 12px 10px 10px 16px;
+    padding: 12px 10px;
   }
 
   .book-title {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
 
-  .book-role {
-    display: none;
+  .book-reveal {
+    width: 260px;
+    bottom: calc(100% + 12px);
+    padding: 1rem 1.1rem;
   }
 
   .skill-row {

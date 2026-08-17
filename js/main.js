@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DTilt();
   initSmoothScroll();
   initContactForm();
+  initBookshelf();
 });
 
 const prefersReducedMotion = () =>
@@ -320,6 +321,40 @@ function initContactForm() {
       clearFieldError(name);
       if (!status.hidden && status.classList.contains('form-status--error')) clearStatus();
     });
+  });
+}
+
+/**
+ * Bookshelf projects - tap-to-reveal details on coarse pointers
+ */
+function initBookshelf() {
+  const books = document.querySelectorAll('.book');
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+  if (!coarse) return;
+
+  const closeAll = (except) => {
+    books.forEach((book) => {
+      if (book !== except) book.classList.remove('is-open');
+    });
+  };
+
+  books.forEach((book) => {
+    book.addEventListener('click', (e) => {
+      const linked = book.tagName === 'A';
+      const isOpen = book.classList.contains('is-open');
+      if (!isOpen) {
+        e.preventDefault();
+        closeAll(book);
+        book.classList.add('is-open');
+      } else if (!linked) {
+        e.preventDefault();
+        book.classList.remove('is-open');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.book')) closeAll(null);
   });
 }
 
