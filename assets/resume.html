@@ -6,7 +6,7 @@
     <style>
       @page {
         size: A4;
-        margin: 14mm 14mm 16mm 14mm;
+        margin: 13mm 14mm 15mm 14mm;
       }
       * {
         margin: 0;
@@ -15,48 +15,52 @@
       }
       body {
         font-family: "Segoe UI", Arial, sans-serif;
-        font-size: 10.5pt;
-        line-height: 1.45;
+        font-size: 10pt;
+        line-height: 1.42;
         color: #1f2430;
       }
       .header {
         border-bottom: 2.5px solid #ff2d20;
-        padding-bottom: 10px;
-        margin-bottom: 14px;
+        padding-bottom: 8px;
+        margin-bottom: 10px;
       }
       .name {
-        font-size: 24pt;
+        font-size: 22pt;
         font-weight: 700;
         letter-spacing: -0.5px;
         color: #14181f;
       }
       .role {
-        font-size: 11.5pt;
+        font-size: 10.5pt;
         font-weight: 600;
         color: #ff2d20;
         margin-top: 2px;
       }
       .contact {
-        margin-top: 8px;
-        font-size: 9.5pt;
+        margin-top: 6px;
+        font-size: 9pt;
         color: #4b5563;
       }
       .contact span {
-        margin-right: 14px;
+        margin-right: 12px;
       }
       h2 {
-        font-size: 11.5pt;
+        font-size: 10.5pt;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.8px;
         color: #ff2d20;
-        margin: 14px 0 6px;
+        border-bottom: 1px solid #e5e7eb;
+        margin: 11px 0 5px;
+        padding-bottom: 2px;
       }
       .summary {
         color: #374151;
+        text-align: justify;
       }
       .job {
-        margin-bottom: 10px;
+        margin-bottom: 9px;
+        page-break-inside: avoid;
       }
       .job-head {
         display: flex;
@@ -65,48 +69,46 @@
       }
       .job-title {
         font-weight: 700;
-        font-size: 11pt;
+        font-size: 10.5pt;
         color: #14181f;
       }
       .job-meta {
-        font-size: 9.5pt;
+        font-size: 9pt;
         color: #6b7280;
         font-weight: 600;
+        white-space: nowrap;
       }
       .job-company {
         font-weight: 600;
         color: #ff2d20;
-        font-size: 10pt;
+        font-size: 9.5pt;
       }
       .job p {
         color: #374151;
-        margin-top: 2px;
+        margin-top: 1px;
       }
       .job ul {
-        margin: 4px 0 0 16px;
+        margin: 3px 0 0 15px;
         color: #374151;
+      }
+      .job li {
+        margin-bottom: 1.5px;
+        text-align: justify;
       }
       .skills-list {
-        columns: 3;
         list-style: none;
-        margin-top: 2px;
       }
       .skills-list li {
-        break-inside: avoid;
-        padding: 1px 0;
+        padding: 0.5px 0;
         color: #374151;
       }
-      .skills-list li::before {
-        content: "";
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        background: #ff2d20;
-        border-radius: 50%;
-        margin-right: 6px;
+      .skills-cat {
+        font-weight: 700;
+        color: #14181f;
       }
       .project {
-        margin-bottom: 6px;
+        margin-bottom: 7px;
+        page-break-inside: avoid;
       }
       .project-name {
         font-weight: 700;
@@ -115,155 +117,287 @@
       .project-tag {
         font-size: 9pt;
         color: #6b7280;
+        font-weight: 600;
       }
-      .project p {
+      .project p,
+      .project ul {
+        color: #374151;
+        margin-top: 1px;
+      }
+      .project ul {
+        margin: 2px 0 0 15px;
+      }
+      .cert-list,
+      .soft-list {
+        margin-left: 15px;
+        color: #374151;
+      }
+      .edu {
         color: #374151;
       }
       a {
         color: #374151;
         text-decoration: none;
       }
-      .footnote {
-        margin-top: 14px;
-        font-size: 8.5pt;
-        color: #9ca3af;
-      }
     </style>
   </head>
   <body>
     <div class="header">
       <div class="name">Sohail Khan</div>
-      <div class="role">Senior Laravel &amp; AI Engineer | Technical Lead | Full-Stack Developer</div>
+      <div class="role">
+        Senior Software Developer | Laravel &amp; Vue.js | Technical Leadership |
+        REST APIs | System Design | CI/CD | Agile Delivery
+      </div>
       <div class="contact">
-        <span>Mumbai, India</span>
-        <span>ksohail.sk32@gmail.com</span>
+        <span>Mumbai, Maharashtra, India</span>
         <span>+91 99678 32161</span>
+        <span>ksohail.sk32@gmail.com</span>
         <span>github.com/Khan-Sohail</span>
         <span>linkedin.com/in/sohailkhan-ai</span>
       </div>
     </div>
 
-    <h2>Summary</h2>
+    <h2>Professional Summary</h2>
     <p class="summary">
-      Senior Laravel &amp; AI Engineer and Technical Lead with 5+ years of
-      experience building scalable web applications, APIs, SaaS platforms and
-      AI-powered software. Hands-on with PHP 8+, Laravel 11/12, Redis, Swagger,
-      Vue 3, Nuxt 3, Vuetify and Pinia, deployed on AWS with Docker and CI/CD.
-      Practiced in TDD and clean architecture, with a track record of shipping
-      250+ REST APIs and 50+ dashboards, including ride-hailing and payment
-      integrations. Leads cross-functional teams, mentors developers and raises
-      code quality standards end to end.
+      Senior Software Developer with 6+ years of experience building and
+      delivering scalable web applications using PHP, Laravel, Vue.js, REST
+      APIs, and MySQL, with 2+ years of experience leading development teams
+      and managing end-to-end software delivery.
+    </p>
+    <p class="summary" style="margin-top: 4px">
+      Experienced in designing and developing production-grade applications,
+      REST APIs, admin dashboards, third-party integrations, payment gateway
+      integrations, CI/CD pipelines, and performance optimizations across
+      EdTech, Healthcare, E-commerce, Logistics, Ride-Hailing, and Real Estate
+      domains.
+    </p>
+    <p class="summary" style="margin-top: 4px">
+      Led the development and delivery of 15+ production applications,
+      including 100+ dashboards and 150+ APIs, while coordinating
+      cross-functional teams, conducting code reviews, mentoring developers,
+      managing technical integrations, and collaborating with clients and
+      stakeholders.
+    </p>
+    <p class="summary" style="margin-top: 4px">
+      Seeking Senior Software Developer, Technical Lead, or Team Lead
+      opportunities where I can combine hands-on development expertise with
+      technical leadership, solution design, code quality, and end-to-end
+      delivery ownership.
     </p>
 
-    <h2>Experience</h2>
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Project Manager</div>
-        <div class="job-meta">2023 — 2025</div>
-      </div>
-      <div class="job-company">Aaibuzz</div>
-      <p>
-        Led cross-functional teams to deliver complex web applications. Managed
-        project timelines, resource allocation and stakeholder communication to
-        ensure successful product launches.
-      </p>
-    </div>
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Senior Software Developer</div>
-        <div class="job-meta">2021 — 2023</div>
-      </div>
-      <div class="job-company">Aaibuzz</div>
-      <p>
-        Spearheaded backend architecture and frontend integration. Mentored
-        junior developers and optimized code quality standards using Laravel and
-        Vue.js.
-      </p>
-    </div>
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Software Developer</div>
-        <div class="job-meta">2019 — 2021</div>
-      </div>
-      <div class="job-company">AndroApps Technologies</div>
-      <p>
-        Developed and maintained full-stack web solutions. Collaborated with
-        design teams to implement responsive UI/UX and optimized database
-        performance.
-      </p>
-    </div>
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Intern</div>
-        <div class="job-meta">2018 — 2019</div>
-      </div>
-      <div class="job-company">MaxGen Technologies</div>
-      <p>
-        Gained hands-on experience in web development using CodeIgniter, HTML,
-        CSS and SQL. Assisted in building modular components and debugging
-        legacy code.
-      </p>
-    </div>
-
-    <h2>Skills</h2>
+    <h2>Core Skill Set</h2>
     <ul class="skills-list">
-      <li>PHP 8+</li>
-      <li>Laravel 11 / 12</li>
-      <li>REST API Design</li>
-      <li>Node.js</li>
-      <li>Vue.js 3</li>
-      <li>Nuxt 3</li>
-      <li>Vuetify</li>
-      <li>React</li>
-      <li>JavaScript / TypeScript</li>
-      <li>Tailwind CSS</li>
-      <li>Three.js</li>
-      <li>MySQL</li>
-      <li>Redis</li>
-      <li>AWS</li>
-      <li>Docker</li>
-      <li>CI/CD</li>
-      <li>Git</li>
-      <li>Payment APIs</li>
-      <li>Third-Party APIs</li>
-      <li>Swagger / OpenAPI</li>
-      <li>AI-Powered Engineering</li>
-      <li>Figma</li>
+      <li>
+        <span class="skills-cat">Technical Leadership:</span> Technical
+        Leadership, Team Leadership, Code Reviews, Developer Mentoring,
+        Solution Design, Agile/Scrum, SDLC
+      </li>
+      <li>
+        <span class="skills-cat">Backend:</span> PHP 8+, Laravel (11/12),
+        CodeIgniter 3.1, REST APIs, Eloquent ORM, Swagger, Redis
+      </li>
+      <li>
+        <span class="skills-cat">Frontend:</span> Vue 3, Nuxt 3, Vuetify 2,
+        Pinia, Vite, JavaScript (ES6+), HTML5, CSS3
+      </li>
+      <li>
+        <span class="skills-cat">Database:</span> MySQL, Stored Procedures,
+        Query Optimization, Indexing
+      </li>
+      <li>
+        <span class="skills-cat">DevOps &amp; Tools:</span> Docker, Git,
+        GitHub, GitHub Actions, AWS EC2, AWS S3, CI/CD
+      </li>
+      <li>
+        <span class="skills-cat">Testing &amp; CI/CD:</span> PHPUnit, Pest,
+        Vitest, TDD
+      </li>
+      <li>
+        <span class="skills-cat">Integrations:</span> Third-Party API
+        Integration, Payment Gateway Integration, Vendor Integrations
+      </li>
+      <li>
+        <span class="skills-cat">Other:</span> API Documentation, Client
+        Communication, Agile Delivery, Project Management
+      </li>
     </ul>
 
-    <h2>Projects</h2>
-    <div class="project">
-      <span class="project-name">Toy Tales</span>
-      <span class="project-tag"> — JavaScript, CSS, HTML, Animation</span>
-      <p>
-        A creative e-commerce experience for toys with 3D elements and
-        interactive design. github.com/Khan-Sohail/toy-tales
-      </p>
+    <h2>Professional Experience</h2>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Project Manager / Sr. Software Developer</div>
+        <div class="job-meta">Apr 2021 – Oct 2025</div>
+      </div>
+      <div class="job-company">Aaibuzz Pvt. Ltd., Navi Mumbai, Maharashtra</div>
+      <ul>
+        <li>
+          Orchestrated the design, deployment, and optimization of 15+
+          production-grade applications leveraging Laravel and Vue.
+        </li>
+        <li>
+          Led development teams through requirements analysis, technical
+          implementation, code reviews, testing, deployment, and production
+          delivery.
+        </li>
+        <li>
+          Engineered 50+ dashboards and 100+ APIs for high-profile clients
+          (Mamaearth, Infakt, iChart, ChooseApp, Doorkee).
+        </li>
+        <li>
+          Coordinated third-party service integrations (aggregators, payment
+          providers) to enable multi-vendor comparison solutions.
+        </li>
+        <li>
+          Established CI/CD pipelines with GitHub Actions, accelerating release
+          cycles and minimizing deployment failures.
+        </li>
+        <li>
+          Enhanced application speed via advanced caching and adaptive access
+          control, contributing to a ~30% boost in dashboard responsiveness.
+        </li>
+        <li>
+          Championed TDD principles and cultivated a code quality culture
+          through structured peer reviews and mentoring programs.
+        </li>
+      </ul>
     </div>
-    <div class="project">
-      <span class="project-name">Addy Glitch</span>
-      <span class="project-tag"> — JavaScript, Frontend, glitch.js, UI/UX</span>
-      <p>
-        A frontend experimentation project featuring modern JavaScript
-        techniques and glitch effects. github.com/Khan-Sohail/addy_glitch-front
-      </p>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">PHP Web Developer</div>
+        <div class="job-meta">Jul 2019 – Jan 2021</div>
+      </div>
+      <div class="job-company">
+        ASAG AndroApps Technology Pvt. Ltd., Belapur, Maharashtra
+      </div>
+      <ul>
+        <li>
+          Produced 45+ admin dashboards and 25+ APIs using CodeIgniter and
+          jQuery, supporting both web/mobile clients.
+        </li>
+        <li>
+          Integrated and maintained payment gateway services for e-commerce
+          operations, introducing reusable backend modules to shorten
+          development time.
+        </li>
+        <li>
+          Worked closely with product and QA teams to deliver technically
+          demanding dashboards and logic-driven functionalities.
+        </li>
+      </ul>
     </div>
-    <div class="project">
-      <span class="project-name">Wellness App</span>
-      <span class="project-tag"> — React Native, Firebase, Redux, Lottie</span>
-      <p>A mobile-first wellness application with personalized meditation
-        sessions, progress tracking and calming visual experiences.</p>
-    </div>
-    <div class="project">
-      <span class="project-name">Creative Agency Site</span>
-      <span class="project-tag"> — Three.js, GSAP, Nuxt, Prismic</span>
-      <p>An agency website with immersive scroll animations, WebGL effects and
-        a bold visual identity.</p>
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Intern — Web Development</div>
+        <div class="job-meta">Aug 2018 – Mar 2019</div>
+      </div>
+      <div class="job-company">MAXGEN Pvt. Ltd., Navi Mumbai, Maharashtra</div>
+      <ul>
+        <li>
+          Built and tested MVC-driven PHP modules, establishing reliable MySQL
+          data connections and ensuring seamless deployment for client
+          projects.
+        </li>
+      </ul>
     </div>
 
-    <p class="footnote">
-      Generated from the portfolio at khan-sohail.github.io/my-portfolio ·
-      education details available on request
+    <h2>Selected Projects</h2>
+    <div class="project">
+      <span class="project-name">Doorkee (UAE Rental Platform)</span>
+      <span class="project-tag"> — Project Manager &amp; Sr. Developer</span>
+      <p>
+        UAE rental marketplace where tenants place offers and owners allot to
+        the highest bidder. Led weekly client scrums and supervised Stripe
+        payment gateway integration. Live and operational.
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">Pet Walkie (Pet Walking Service Platform)</span>
+      <span class="project-tag"> — Project Manager &amp; Sr. Developer</span>
+      <p>
+        Pet-walking service platform where users can purchase multi-day walking
+        plans, schedule walk requests, and get matched to the nearest service
+        franchisee. Directed product workflow design: payment capture → address
+        collection → nearest-franchisee assignment → date-range slot scheduling
+        → franchisee task pipeline. Supervised franchisee dashboard
+        implementation, coordinated backlog priorities with stakeholders, and
+        ensured smooth operational handover and live deployment.
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">ChooseApp (Ride-Hailing Aggregator)</span>
+      <span class="project-tag"> — Project Manager</span>
+      <p>
+        Live on Play Store &amp; App Store. Aggregates and compares fares from
+        Uber, Ola, Rapido and local aggregators (Cab Bazaar, Meru, Mega).
+        Managed daily Scrum calls, client demos, and vendor technical
+        integrations (all aggregator APIs integrated under my supervision).
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">Infakt Learning Platform</span>
+      <span class="project-tag"> — Laravel + Vue + Swagger</span>
+      <p>
+        Education content &amp; assignment system with teacher workflows,
+        assignment grading, and analytics dashboards.
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">Mamaearth PAN India Dashboard</span>
+      <span class="project-tag"> — Laravel + Vuetify</span>
+      <p>
+        Nationwide staff performance &amp; reporting dashboard with role-based
+        access and automated reports.
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">iChart (Fast Freight PTE)</span>
+      <span class="project-tag"> — Laravel + Vue</span>
+      <p>
+        Freight invoicing and billing automation with complex financial logic
+        for shipping clients.
+      </p>
+    </div>
+    <div class="project">
+      <span class="project-name">Landbridge Ship Management (LBSM)</span>
+      <span class="project-tag"> — Laravel + Vue</span>
+      <p>
+        CMS for seafarer training and competency tracking with onboard/offshore
+        access.
+      </p>
+    </div>
+
+    <h2>Certifications</h2>
+    <ul class="cert-list">
+      <li>PHP Certification — Maxgen Pvt. Ltd. (2019)</li>
+      <li>
+        GitHub Actions Workshop: Create CI/CD Pipelines to Automate, Build,
+        Test and Deploy — Microsoft Press
+      </li>
+      <li>Managing Team — Daisy Lovelace</li>
+      <li>AWS Certified Developer — Associate (In Progress)</li>
+      <li>Introduction to Generative AI — Google (2026)</li>
+      <li>Introduction to Large Language Models — Google (2026)</li>
+      <li>Introduction to Responsible AI — Google (2026)</li>
+      <li>Prompt Design in Vertex AI — Google (2026)</li>
+      <li>
+        Responsible AI: Applying AI Principles with Google Cloud — Google (2026)
+      </li>
+      <li>Deploy and Manage Applications on Google App Engine — Google (2026)</li>
+      <li>Build AI Agents with Enterprise Databases — Google (2026)</li>
+      <li>App Engine: 3 Ways Skill Badge — Google (2026)</li>
+      <li>Prompt Design in Vertex AI Skill Badge — Google (2026)</li>
+    </ul>
+
+    <h2>Education</h2>
+    <p class="edu">
+      B.Sc. Computer Science — N.G. Acharya &amp; D.K. Marathe College of Arts,
+      Mumbai
+    </p>
+
+    <h2>Soft Skills</h2>
+    <p class="soft-list">
+      Leadership • Team Mentoring • Problem Solving • Agile Delivery • Client
+      Communication • Analytical Thinking
     </p>
   </body>
 </html>
