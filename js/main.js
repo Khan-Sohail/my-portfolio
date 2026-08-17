@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initContactForm();
   initBookshelf();
+  initServices();
 });
 
 const prefersReducedMotion = () =>
@@ -355,6 +356,25 @@ function initBookshelf() {
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.book')) closeAll(null);
+  });
+}
+
+/**
+ * Services gallery - expand one panel at a time
+ */
+function initServices() {
+  const gallery = document.getElementById('services-gallery');
+  if (!gallery) return;
+
+  const panels = Array.from(gallery.querySelectorAll('.service-panel'));
+  const expand = (panel) => {
+    panels.forEach((p) => p.classList.toggle('is-expanded', p === panel));
+  };
+
+  panels.forEach((panel) => {
+    panel.addEventListener('mouseenter', () => expand(panel));
+    panel.addEventListener('focus', () => expand(panel));
+    panel.addEventListener('click', () => expand(panel));
   });
 }
 

@@ -1251,6 +1251,165 @@ textarea {
 }
 
 /* ================================================
+   SERVICES SECTION
+   ================================================ */
+
+.services-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.services-intro {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+}
+
+.services-gallery {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  height: clamp(420px, 55vh, 560px);
+}
+
+.service-panel {
+  position: relative;
+  flex: 0 0 116px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 22px;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex-basis 0.65s var(--ease-smooth),
+    flex-grow 0.65s var(--ease-smooth);
+}
+
+.service-panel.is-expanded {
+  flex: 1 1 0;
+}
+
+.service-panel:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
+}
+
+.sv-01 {
+  background: linear-gradient(165deg, #311b16, #170c09);
+}
+
+.sv-02 {
+  background: linear-gradient(165deg, #173028, #0b1712);
+}
+
+.sv-03 {
+  background: linear-gradient(165deg, #2c1d33, #140b18);
+}
+
+.sv-04 {
+  background: linear-gradient(165deg, #1c2533, #0d121b);
+}
+
+.sv-05 {
+  background: linear-gradient(165deg, #2c2816, #15120a);
+}
+
+.service-panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-num {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+.service-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 1rem;
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+  transition: opacity 0.45s var(--ease-smooth),
+    transform 0.45s var(--ease-smooth),
+    background-color 0.45s var(--ease-smooth);
+}
+
+.service-panel:hover .service-arrow,
+.service-panel.is-expanded .service-arrow,
+.service-panel:focus .service-arrow {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.service-panel-bottom {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  min-width: 0;
+}
+
+.service-bar {
+  flex-shrink: 0;
+  width: 4px;
+  min-height: 34px;
+  align-self: stretch;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.service-panel-text {
+  min-width: 0;
+}
+
+.service-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: #fff;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+}
+
+.service-panel.is-expanded .service-title {
+  writing-mode: horizontal-tb;
+  white-space: normal;
+}
+
+.service-desc {
+  margin-top: 14px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(12px);
+  transition: max-height 0.55s var(--ease-smooth),
+    opacity 0.45s var(--ease-smooth), transform 0.45s var(--ease-smooth);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.service-panel.is-expanded .service-desc {
+  max-height: 220px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================
    SKILLS SECTION
    ================================================ */
 
@@ -2007,6 +2166,27 @@ textarea {
 }
 
 @media (max-width: 768px) {
+  .services-gallery {
+    flex-direction: column;
+    height: auto;
+    gap: 14px;
+  }
+
+  .service-panel {
+    flex: none;
+  }
+
+  .service-title {
+    writing-mode: horizontal-tb;
+    white-space: normal;
+  }
+
+  .service-desc {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;

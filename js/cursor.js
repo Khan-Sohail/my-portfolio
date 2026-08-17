@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hover states via event delegation
     document.addEventListener('mouseover', (e) => {
-        if (e.target.closest('a, button, input, textarea, [data-tilt], .project-card, .stat, .book')) {
+        if (e.target.closest('a, button, input, textarea, [data-tilt], .project-card, .stat, .book, .service-panel')) {
             cursor.classList.add('hover');
             follower.classList.add('hover');
         }
     });
 
     document.addEventListener('mouseout', (e) => {
-        if (e.target.closest('a, button, input, textarea, [data-tilt], .project-card, .stat, .book')) {
+        if (e.target.closest('a, button, input, textarea, [data-tilt], .project-card, .stat, .book, .service-panel')) {
             cursor.classList.remove('hover');
             follower.classList.remove('hover');
         }
