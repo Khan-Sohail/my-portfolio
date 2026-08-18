@@ -1246,6 +1246,43 @@ textarea {
   padding: 0.35rem 0.8rem;
 }
 
+.project-panel .project-num,
+.project-panel .project-bar,
+.project-panel .project-role,
+.project-panel .project-tags,
+.project-panel .project-link {
+  display: none;
+}
+
+.project-panel.is-expanded .project-num {
+  display: inline;
+}
+
+.project-panel.is-expanded .project-bar {
+  display: block;
+}
+
+.project-panel.is-expanded .project-role {
+  display: block;
+}
+
+.project-panel.is-expanded .project-tags {
+  display: flex;
+}
+
+.project-panel.is-expanded .project-link {
+  display: inline-block;
+}
+
+.project-arrow svg {
+  display: block;
+}
+
+.project-link svg {
+  display: inline-block;
+  vertical-align: -2px;
+}
+
 /* ================================================
    SKILLS SECTION
    ================================================ */
@@ -2018,13 +2055,6 @@ textarea {
   .project-panel.is-expanded .project-title {
     writing-mode: horizontal-tb;
     white-space: normal;
-  }
-
-  .project-desc,
-  .project-panel.is-expanded .project-desc {
-    max-height: none;
-    opacity: 1;
-    transform: none;
   }
 
   .nav-links {
