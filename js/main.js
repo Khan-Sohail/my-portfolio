@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DTilt();
   initSmoothScroll();
   initContactForm();
-  initBookshelf();
-  initServices();
+  initProjectPanels();
 });
 
 const prefersReducedMotion = () =>
@@ -326,55 +325,23 @@ function initContactForm() {
 }
 
 /**
- * Bookshelf projects - tap-to-reveal details on coarse pointers
+ * Project galleries - expand one panel at a time
  */
-function initBookshelf() {
-  const books = document.querySelectorAll('.book');
-  const coarse = window.matchMedia('(pointer: coarse)').matches;
-  if (!coarse) return;
+function initProjectPanels() {
+  const galleries = document.querySelectorAll('.project-gallery');
+  if (!galleries.length) return;
 
-  const closeAll = (except) => {
-    books.forEach((book) => {
-      if (book !== except) book.classList.remove('is-open');
+  galleries.forEach((gallery) => {
+    const panels = Array.from(gallery.querySelectorAll('.project-panel'));
+    const expand = (panel) => {
+      panels.forEach((p) => p.classList.toggle('is-expanded', p === panel));
+    };
+
+    panels.forEach((panel) => {
+      panel.addEventListener('mouseenter', () => expand(panel));
+      panel.addEventListener('focus', () => expand(panel));
+      panel.addEventListener('click', () => expand(panel));
     });
-  };
-
-  books.forEach((book) => {
-    book.addEventListener('click', (e) => {
-      const linked = book.tagName === 'A';
-      const isOpen = book.classList.contains('is-open');
-      if (!isOpen) {
-        e.preventDefault();
-        closeAll(book);
-        book.classList.add('is-open');
-      } else if (!linked) {
-        e.preventDefault();
-        book.classList.remove('is-open');
-      }
-    });
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.book')) closeAll(null);
-  });
-}
-
-/**
- * Services gallery - expand one panel at a time
- */
-function initServices() {
-  const gallery = document.getElementById('services-gallery');
-  if (!gallery) return;
-
-  const panels = Array.from(gallery.querySelectorAll('.service-panel'));
-  const expand = (panel) => {
-    panels.forEach((p) => p.classList.toggle('is-expanded', p === panel));
-  };
-
-  panels.forEach((panel) => {
-    panel.addEventListener('mouseenter', () => expand(panel));
-    panel.addEventListener('focus', () => expand(panel));
-    panel.addEventListener('click', () => expand(panel));
   });
 }
 
