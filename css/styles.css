@@ -2039,7 +2039,7 @@ textarea {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .project-gallery {
     flex-direction: column;
     height: auto;
@@ -2056,7 +2056,9 @@ textarea {
     writing-mode: horizontal-tb;
     white-space: normal;
   }
+}
 
+@media (max-width: 768px) {
   .nav-links {
     position: fixed;
     top: 0;
